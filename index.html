@@ -1,1 +1,465 @@
-<h1>hello</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta property="og:title" content="MOCHa: Multi-Objective Reinforcement Mitigating Caption Hallucinations"/>
+  <meta property="og:url" content="https://assafbk.github.io/mocha/"/>
+  <meta property="og:image" content="static/images/og_tag_header_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <title>MOCHa: Multi-Objective Reinforcement Mitigating Caption Hallucinations</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+  <link rel="icon" href="static/figures/mocha_icon.ico">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+
+<section class="publication-header">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <!-- <div class="columns is-centered"> -->
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MOCHa: Multi-Objective Reinforcement Mitigating Caption Hallucinations</h1>
+        </div>
+    </div>
+  </div>   
+</section>
+
+<section class="publication-author-block">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <!-- <h1 class="title is-1 publication-title">CLIPasso: Semantically-Aware Object Sketching</h1> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="" target="_blank">Assaf Ben-Kish</a>,</span>
+            <span class="author-block"><a href="" target="_blank">Moran Yanuka</a>,</span>
+            <span class="author-block"><a href="" target="_blank">Morris Alper</a>,</span>
+            <span class="author-block"><a href="" target="_blank">Raja Giryes</a>,</span>
+            <span class="author-block"><a href="" target="_blank">Hadar Elor</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Tel Aviv University</span> 
+            <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="ENTER ARXIV LINK" target="_blank"
+                  class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="ENTER PDF LINK" target="_blank"
+                  class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- SM Link. -->
+<!--               <span class="link-block">
+                <a href="static/source/supp_CLIPasso_Semantically_Aware_Object_Sketching.pdf" target="_blank"
+                class="external-link button is-normal is-rounded">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Supplementary</span>
+              </a> -->
+              </span>
+              <!-- </span> -->
+              <!-- Colab Link. -->
+              <span class="link-block">
+                <a href="ENTER GITHUB LINK" target="_blank"
+                class="external-link button is-normal is-rounded">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="https://colab.research.google.com/github/yael-vinker/CLIPasso/blob/main/CLIPasso.ipynb"  target="_blank"
+                  class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                      <i class="fas fa-infinity"></i>
+                  </span>
+                  <span>Colab</span>
+                </a>
+              </span> -->
+           
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <!-- <div class="hero-body"> -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+      <div class="container">
+        <h2 class="subtitle">
+        We introduce MOCHa,<br>a general framework for optimizing Vision-Language Models (VLMs) to produce high-quality, factually grounded image captions.
+      </h2>
+      <div class="item">
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/mocha_teaser_1.png" alt="clipasso"/>
+      </div>
+    </div>
+  </div>
+ <!--  </div> -->
+  </div>
+  </div>
+ <!--  </div> -->
+</section>
+
+<section class="hero is-small">
+  <!-- <div class="hero-body"> -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+      <div class="container">
+      <h2 class="subtitle">
+        Additionally, we introduce OpenCHAIR,<br>a benchmark for evaluating open-vocabulary hallucinations in image captioning models.
+      </h2>
+      <div class="item">
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/openchair_teaser.png" alt="clipasso"/>
+      </div>
+    </div>
+  </div>
+ <!--  </div> -->
+  </div>
+  </div>
+ <!--  </div> -->
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="item">
+          <p style="margin-bottom: 30px">
+            <!-- FIXME put image instead -->
+        <!-- <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/sketchy_video.mp4"
+          type="video/mp4">
+        </video> -->
+        </p>
+        </div>
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            While recent years have seen rapid progress in image-conditioned text generation, image captioning still suffers from the fundamental issue of hallucinations, the generation of spurious details that cannot be inferred from the given image.
+            Dedicated methods for reducing hallucinations in image captioning largely focus on closed-vocabulary object tokens, ignoring most types of hallucinations that occur in practice.<br>
+            In this work, we propose MOCHa, an approach that harnesses advancements in reinforcement learning (RL) to address the sequence-level nature of hallucinations in an open-vocabulary setup.
+            To optimize for caption fidelity to the input image, we leverage ground-truth reference captions as proxies to measure the logical consistency of generated captions.
+            However, optimizing for caption fidelity alone fails to preserve the semantic adequacy of generations; therefore, we propose a multi-objective reward function that jointly targets these qualities, without requiring any strong supervision.
+            We demonstrate that these goals can be simultaneously optimized with our framework, enhancing performance for various captioning models of different scales.
+            Our qualitative and quantitative results demonstrate MOCHa's superior performance across various established metrics.<br>
+            We also demonstrate the benefit of our method in the open-vocabulary setting. To this end, we contribute OpenCHAIR, a new benchmark for quantifying open-vocabulary hallucinations in image captioning models, constructed using generative foundation models.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title has-text-centered">MOCHa Improves A Variety of Models In A Variety Of Scales</h2>
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/mocha_quantitative.png" width="770" height="770" class="is-centered"/>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">How does MOCHa work?</h2>
+        <div class="content has-text-justified">
+          <p>
+           <!-- To jointly optimize for caption fidelity and semantic adequacy, we combine modern deep reinforcement learning methods along with a carefully designed reward model.
+           The algorithm iteratively collects a batch of data from a image captioning model M (left side) and then applies an optimization step to that model (right side).
+           To optimize for caption generations that satisfy the properties described above, we adopt the Proximal Policy Optimization (PPO) RL algorithm, which has been used by numerous recent works on text generation. PPO extends the REINFORCE algorithm (known as SCST in the context of image captioning) by using a clipped surrogate objective to avoid instabilities and increase sample efficiency. -->
+
+           To jointly optimize for caption fidelity and semantic adequacy, we apply the popular Proximal Policy Optimization (PPO) RL algorithm along with a carefully designed reward model.
+           The algorithm iteratively collects a batch of data from the image captioning model M (left side) and then applies an optimization step to it (right side):
+
+
+           <!-- The multi-objective reward reinforces M to produce captions closer to the high-scoring captions and further from the low-scoring captions. -->
+          </p>
+        </div>
+        <div class="column is-centered has-text-centered">
+        <img src="static/figures/mocha_scheme.png" alt="cars peace"/>
+      </div>
+        <div class="content has-text-justified">
+          <p>
+            We build the multi-objective reward model as follows. In order to measure fidelity to the input image, we feed a GT reference caption and a generated caption to a pre-trained Natural Language Inference (NLI) model, which predicts the probability of contradiction between the two texts.
+            To measure adequacy we use BERTScore, a pretrained model measuring the general quality of the generated text relative to the GT reference.
+            Following prior work, we add a Kullback–Leibler (KL) divergence penalty to the reward model which constrains the model to stay close to its initial state. This prevents the model from 'forgetting' valuable knowledge that it acquired during pre-training (like caption fluency and diversity) and restrains it from converging to adversarial solutions which 'reward-hack' the objective.
+            Our total reward function takes the form \(r = \alpha \cdot r_{f} + (1-\alpha) \cdot r_{a} + \beta \cdot r_{kl}\) , where \(\alpha\) and \(\beta\) are positive scalars controlling the tradeoff between our multiple objectives.
+            <!-- PPO extends the REINFORCE algorithm (known as SCST in the context of image captioning) by using a clipped surrogate objective to avoid instabilities and increase sample efficiency.  -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+
+
+
+
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        
+        <div class="item">
+        <p style="margin-top: 30px">
+
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/gifs/classes_art.mp4"
+        type="video/mp4">
+        </video>
+        <h2 class="subtitle">
+          Our approach is different from conventional sketching methods in that it does not utilize a sketch dataset for training, rather it is optimized under the guidance of CLIP. Thus, our method is not limited to specific categories observed during training, as no category definition was introduced at any stage. This makes our method robust to various inputs.
+        </h2>
+        </p>
+        </div>
+        </div>
+      </div>
+    </div>
+</section> -->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title has-text-centered">BLIP+MOCHa with Beam-Search</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/bs_1_bbox.png" alt="cars peace"/>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/bs_2_bbox.png" alt="cars peace"/>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/bs_3_bbox.png" alt="cars peace"/>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/bs_4_bbox.png" alt="cars peace"/>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/bs_5_bbox.png" alt="cars peace"/>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title has-text-centered">BLIP+MOCHa with Nucleus Sampling</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/sampling_2_bbox.png" alt="cars peace"/>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/sampling_3_bbox.png" alt="cars peace"/>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/sampling_1_bbox.png" alt="cars peace"/>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/sampling_4_bbox.png" alt="cars peace"/>
+      </div>
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/sampling_5_bbox.png" alt="cars peace"/>
+      </div>    
+  </div>
+</div>
+</div>
+</section>
+
+
+
+
+<section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">What is OpenCHAIR?</h2>
+        <div class="content has-text-justified">
+          <p>
+            OpenCHAIR is a benchmark for evaluating open-vocabulary hallucinations in image captioning models.
+            OpenCHAIR has a registration-free design which lets it measure a significantly large amount of object types, especially when compared to the existing metric CHAIR.
+            The core idea of OpenCHAIR is to compare the objects in the predicted and reference captions with a LLM instead of relying on closed object and synonym lists that heavily limit scaling.
+            Additionally, our registration-free approach enables finer-grained distinctions between objects, as demonstrated in the example below:   
+          </p>
+        </div>
+        <div class="column is-centered has-text-centered">
+        <img src="static/figures/OCH_example.png" alt="cars peace"/>
+      </div>
+        <div class="content has-text-justified">
+          <p>
+            <!-- The above illustrates the fundamentally different nature of quantifying open-vocabulary hallucinations with OpenCHAIR, compared to the closed-vocabulary evaluation of CHAIR. -->
+            Given the above image and groundtruth information, OpenCHAIR extracts concrete objects from a
+            predicted caption and identifies hallucinated objects from this list by querying an LLM.
+            In contrast, in the above case the predicted object guitar would not be counted by CHAIR since it is not in its
+            fixed vocabulary, while man would not be counted as a hallucination since it is given as a synonym of child in CHAIR's vocabulary.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="item">
+          <p style="margin-bottom: 30px">
+        </p>
+        </div>
+        <h2 class="title is-3">OpenCHAIR vs. CHAIR</h2>
+        <div class="content has-text-justified">
+          <p>
+            We display the object coverage of CHAIR (over MS-COCO) and OpenCHAIR, measured as the number of unique objects:
+          </p>
+          <div class="column is-centered has-text-centered">
+            <img src="static/figures/och_coverage.png" width="400" height="400" class="is-centered"/>
+          </div>
+          <p>
+            We note that the amount of objects in OpenCHAIR (1,400) was arbitrary selected, and in theory is limited only by the knowledge of the LLM.<br><br>
+            <b>Additionally, we provide a list of all objects in OpenCHAIR:</b><br>
+            sculpture, haystack, monument, boar, buffet, whiskey, land, capsule, bulldozer, jester, cougar, skateboarder, greenhouse, cigarette, tool, cookie, trampoline, rifle, pigtail, tile, cement, wood, sunflower, police, honeycomb, hive, comb, cottage, eyeglass, vine, alley, scar, reef, cable, sparkler, gingerbread, deck, dirt, bartender, sled, hotel, armor, picnic, yard, battlefield, pasture, pond, map, jet, badminton, pendant, steel, bonnet, knuckle, sun, rafter, cafeteria, sauce, snorkel, ramp, globe, robot, bag, movie, staircase, chopstick, foot, cream, chin, pepperoni, swamp, knee, diver, bike, tadpole, town, hacksaw, mustard, iron, spit, railing, claw, gravel, bullwhip, mother, tuna, workshop, underwear, beast, package, cartwheel, lace, shore, garage, fish, bull, snowball, mist, shelf, metal, fabric, lipstick, shirt, alcohol, pistol, asteroid, medal, tightrope, video, wagon, salad, worm, hook, hourglass, cabinet, tower, waterfront, jar, piano, grapevine, singer, baby, beer, steeple, toad, ice, beach, cloud, hoodie, fingerprint, pinstripe, rollerblade, lime, road, coin, flower, heel, shark, graph, dessert, pallet, grill, carton, ham, motorbike, frog, swimwear, bar, streetlight, head, cloth, headscarf, china, headdress, jean, badge, pet, gift, sack, plant, dandelion, riverbank, sharpener, iphone, saloon, fur, waiter, midwife, microphone, flesh, joystick, card, propeller, sea, iceberg, treadmill, gorilla, dancer, megaphone, restroom, skull, prison, shrimp, napkin, shaft, kale, harmonica, ipad, rhino, boyfriend, typewriter, balloon, gearbox, spice, rock, saddle, fluid, bullfight, hatchet, screw, site, falcon, beaker, driftwood, deadbolt, drawer, bumper, rainforest, helicopter, rollercoaster, penny, throne, trenchcoat, hardhat, tutu, arm, breast, spear, casserole, room, talon, machinery, mammal, corral, flute, sunroof, bridge, chainsaw, baton, fog, human, honey, patch, gate, toolbox, mascara, pasta, antenna, signpost, arrow, bib, ostrich, equipment, grid, sunset, spatula, stereo, tank, uniform, sushi, headstand, church, canoe, washroom, flock, ground, popsicle, barn, dove, foliage, piston, muffin, plaque, duck, basement, forklift, pencil, strap, bullfighting, bagpipe, teacup, banner, lighthouse, lighter, parrot, chip, necktie, bowling, skin, glue, backyard, factory, gym, coastline, hawk, pail, emerald, sundae, comet, bracelet, paint, watch, river, porch, crane, wristwatch, pole, garden, gun, appliance, owl, wheelbarrow, trumpet, feather, hurricane, canine, sleeve, courtyard, pendulum, desert, postcard, cushion, trapeze, cassette, dunk, lake, poppy, microscope, tavern, dishwasher, chess, armchair, bug, bison, handkerchief, smoke, drugs, berry, pickaxe, roof, cowboy, lightning, orchid, hill, cattle, playpen, water, fence, scotch, lamppost, meat, cardboard, paper, turtleneck, polaroid, skyscraper, cheetah, bath, pinwheel, tablecloth, stiletto, sombrero, blade, street, spacesuit, stage, boulder, morgue, neighborhood, calendar, pavement, park, sash, suit, tongue, yarn, worker, village, manuscript, frosting, basket, panda, bumblebee, wine, leather, scanner, seed, liquor, duckling, acupuncturist, child, lung, planter, stopwatch, ship, cherry, rainstorm, mane, figurine, grass, grassland, gargoyle, lumberjack, speedboat, computer, steak, cactus, kilt, journal, bronco, beehive, ponytail, mannequin, cowgirl, animal, bicep, wheat, dam, fridge, runway, seal, balcony, chimney, bell, stone, radio, bay, haircut, keyhole, dashboard, tuxedo, vessel, hammer, hole, taxi, wheel, campfire, headpiece, wool, alligator, gymnasium, grain, macaroni, bow, jail, salsa, ticket, maid, lever, fireman, pool, laundry, heart, gymnast, cavern, mop, poncho, flashlight, schoolyard, shelter, leg, costume, baker, extinguisher, pancake, armadillo, stocking, sidewalk, syringe, cave, bush, denim, photo, gem, sofa, inhaler, supermarket, kayak, people, rim, poodle, tanker, hoof, cabin, bulb, leaf, sweatshirt, shotgun, bullhorn, burner, debris, cannon, fishbowl, hanger, bunny, loaf, sword, shower, tapestry, coffee, blackbird, eye, bee, windmill, duster, pod, shed, vehicle, roller, insect, turban, chimpanzee, runner, mountain, patio, potato, jewel, tuba, tourist, arcade, closet, marshmallow, bedroom, petal, earphone, lasso, shipyard, rain, chick, doll, cappuccino, handle, bead, pianist, bible, trunk, squid, farmhouse, chameleon, boardroom, utensil, baseball, pipe, clown, toupee, actor, peanut, aquarium, stair, diner, pig, fan, copper, compass, cafe, hoe, cupboard, cola, pilot, rink, garbage, turkey, ribbon, hilltop, butt, pocket, sleigh, shell, drawing, meter, brush, firewood, omelet, lion, cloak, dice, trailer, grandmother, mule, torch, traffic, grenade, tail, shack, towel, ruby, salmon, gondola, swing, pocketknife, horn, eagle, pearl, chain, tiger, sand, bookbag, tricycle, toy, corkscrew, charcoal, text, somersault, man, pinecone, grandfather, hedge, chocolate, infant, wheelchair, sugar, bread, wand, tape, hose, boot, blackboard, bookstore, doorway, wing, pin, skeleton, dial, marinara, needle, beanie, forehead, meteorite, wetsuit, waterfall, barbecue, flask, candy, pebble, skirt, thread, sparrow, hoop, visor, oyster, oatmeal, waffle, girl, roadway, stump, bubblegum, mummy, tomato, candelabra, picture, spaghetti, sticker, cheek, gold, rabbit, vat, canvas, sledgehammer, string, dish, reporter, guitar, firetruck, plastic, house, parachute, brownie, firefighter, handlebar, table, rubble, gnome, bark, satchel, chalk, nickel, cube, milkshake, mustache, apron, workstation, firework, treehouse, container, cub, jewelry, stagecoach, groom, beard, glass, toothpaste, watermelon, beekeeper, monkey, trash, screen, pollen, bucket, wig, carriage, waterhole, chapel, lightbulb, dartboard, tweezer, handstand, tequila, straw, bathrobe, penguin, lava, lily, cobblestone, noodle, poster, bagel, sandcastle, jukebox, wardrobe, pyramid, nightgown, lumber, dime, stem, fin, afro, burger, pirate, building, kitchen, cigar, snow, cyclist, seashell, syrup, stain, sill, luggage, phone, washcloth, medication, tracksuit, creek, bamboo, key, surf, hydrant, eyelash, meal, airship, wallpaper, windowsill, bluebird, net, vest, flame, jaw, fire, battery, snail, flour, cupcake, box, kitten, stool, pit, paperwork, children, smoothie, moat, chimp, photograph, screwdriver, awning, darts, chickadee, hula, raincoat, bullfighter, lego, crack, bicyclist, pajama, vineyard, mountaintop, leash, puppet, album, nut, stroller, canyon, sketch, clay, touchscreen, pudding, certificate, backseat, piggy, dumbbell, seashore, crowd, curtain, wrist, seaweed, soldier, seagull, printer, recliner, pastry, parent, mud, toe, market, lid, ladder, sling, hedgehog, ax, ceiling, pub, beaver, puppy, crib, notepad, onion, cubicle, swimsuit, chisel, airport, coal, soup, elk, saucer, shrub, ukulele, guy, cinema, wrench, meatball, storybook, sock, bean, cocoa, ant, beet, mall, jeweler, campsite, swan, receipt, tugboat, cereal, daughter, dollar, pen, grave, pantry, pan, lobby, stairwell, astronaut, crate, wall, gumball, mailbox, pizzeria, helmet, bolt, dreadlock, puddle, cap, tiara, food, icing, boxer, taco, sailor, cotton, blood, engine, body, lip, banjo, television, army, fox, squirrel, flag, seat, eyeshadow, surgeon, barbell, hospital, hardware, donkey, slingshot, ram, princess, missile, koala, cashier, bouquet, star, brick, arch, limb, peel, pineapple, flowerpot, shoulder, doctor, graveyard, oil, temple, sponge, jungle, projector, mitt, pony, earring, seesaw, bathtub, gadget, tray, snowstorm, step, camper, can, bubble, snowflake, office, clothesline, button, billiard, legging, collage, mast, jug, crab, zoo, medallion, lollipop, blueprint, pigeon, smokestack, corn, bank, moustache, ranch, candle, urn, cork, waltz, chicken, throat, lane, dagger, thermometer, pumpkin, sidecar, dragonfly, money, lamb, cargo, birdhouse, antelope, toadstool, pill, cockroach, glove, cellar, barnyard, model, lettuce, leotard, cityscape, fountain, band, tattoo, server, gum, daisy, smartphone, skydiver, skating, tripod, purse, jackrabbit, freezer, necklace, hatchling, stairway, lizard, mold, warehouse, peg, saxophone, flagpole, arena, tooth, photographer, swimmer, bookmark, foam, ginger, rodeo, beak, gown, night, locker, escalator, shield, rainbow, lab, blanket, sweater, dress, coat, highchair, lunchbox, knob, palace, bill, milk, auditorium, ottoman, violin, kid, spa, harp, scarf, neck, farmer, ring, soda, branch, horseshoe, doghouse, mask, eraser, grape, whiteboard, hamburger, chalkboard, nose, martini, checkerboard, broom, organ, bikini, goatee, diploma, crayon, turtle, teapot, sunscreen, bullring, plank, pug, baboon, freckle, skunk, whale, gemstone, refinery, jacket, sign, magazine, juice, ski, crater, painting, hiker, emu, chandelier, lamp, submarine, salon, film, shuffleboard, ivory, camera, ledge, spotlight, hillside, jump, twig, hand, vegetable, reindeer, pie, therapist, pitchfork, silverware, tube, cheese, slipper, cone, jumpsuit, female, newspaper, waist, actress, outdoors, wire, notebook, bathroom, clarinet, boy, lavender, forest, bat, medicine, strawberry, tree, crayfish, dentist, moon, hall, trophy, shoehorn, shovel, perfume, board, pegboard, brass, cello, axe, barge, cinnamon, chessboard, restaurant, workbench, bowtie, harbor, popcorn, cage, yacht, peacock, mallet, chili, dart, nipple, golfer, thumb, starfish, skate, lock, waitress, birdcage, earmuff, volcano, robe, bassinet, cut, puzzle, mayonnaise, sunrise, toast, mozzarella, ocean, pile, goldfish, ballerina, portrait, vault, raft, windshield, cider, moss, grove, canopy, cobra, goose, ladle, turret, elevator, woodcutter, hut, pacifier, wolf, shuttle, attic, chariot, ball, vinyl, beverage, drink, plane, canal, rooster, mushroom, silver, babysitter, playground, cobweb, paintbrush, redhead, spool, cape, kiwi, tarp, rope, stove, menu, champagne, hair, telephone, wildflower, snowman, fertilizer, bride, pear, llama, tulip, wreath, handgun, mattress, blueberry, sailboat, rose, nail, vanilla, iguana, shoreline, officer, sweat, tear, dough, brain, nest, knight, cookbook, marble, oak, letter, corridor, lemon, bobcat, engineer, lantern, snowsuit, automobile, olive, easel, mouth, scalpel, boardwalk, rodent, cannonball, bacon, fist, sneaker, ballroom, graffiti, basketball, dinosaur, sail, farm, city, kangaroo, railroad, cart, parade, parmesan, statue, meteor, scissor, quill, courtroom, tractor, chestnut, boxing, sandbox, stomach, mug, spyglass, pot, crown, wallet, face, ear, latte, planet, cheeseburger, bakery, siding, island, ox, goat, radish, moose, telescope, floor, drum, shampoo, lemonade, belly, page, belt, beret, casino, ruler, sheet, castle, studio, mansion, bandanna
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{TODO,
+      title={}, 
+      author={},
+      year={},
+      eprint={},
+      archivePrefix={},
+      primaryClass={}
+      }</code></pre>
+    </div>
+</section>
+
+
+
+<footer class="footer">
+ <!--  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+      href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+      <i class="fas fa-file-pdf"></i>
+    </a>
+    <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <i class="fab fa-github"></i>
+    </a>
+  </div> -->
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+
+
+  <script type="text/javascript">
+    var sc_project=12351448; 
+    var sc_invisible=1; 
+    var sc_security="c676de4f"; 
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js"
+  async></script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/12351448/0/c676de4f/1/"
+    alt="Web Analytics"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
