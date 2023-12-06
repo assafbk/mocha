@@ -58,7 +58,7 @@
         <div class="column has-text-centered">
           <!-- <h1 class="title is-1 publication-title">CLIPasso: Semantically-Aware Object Sketching</h1> -->
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><a href="https://assafbk.github.io/website/index.html" target="_blank">Assaf Ben-Kish</a>,</span>
+            <span class="author-block"><a href="https://assafbk.github.io/website/" target="_blank">Assaf Ben-Kish</a>,</span>
             <span class="author-block"><a href="" target="_blank">Moran Yanuka</a>,</span>
             <span class="author-block"><a href="https://morrisalp.github.io/" target="_blank">Morris Alper</a>,</span>
             <span class="author-block"><a href="https://www.giryes.sites.tau.ac.il/" target="_blank">Raja Giryes</a>,</span>
@@ -141,16 +141,34 @@
       <!-- <div id="results-carousel" class="carousel results-carousel"> -->
       <div class="container">
         <h2 class="subtitle">
-        <!-- We introduce MOCHa, a general framework for optimizing Vision-Language Models (VLMs) to produce high-quality, factually grounded image captions. -->
-        Hallucinated details (shown as <mark style="background-color:#ffd2d1;">highlighted text</mark>) are prevalent in the outputs of modern image captioning models, as exemplified by BLIP below.<br> 
-        We introduce MOCHa, a reinforcement learning-based approach that adjusts captioning models to output detailed, valid captions while avoiding such hallucinations.
-      </h2>
+          Hallucinated details are prevalent in the outputs of modern image captioning models, as exemplified by BLIP below.<br>
+          We introduce <b><u>MOCHa</u></b>, a reinforcement learning-based approach that adjusts captioning models to output detailed, valid captions while avoiding such hallucinations:
+          </h2>
       <div class="item">
-      <div class="column is-centered has-text-centered">
-        <img src="static/figures/mocha_teaser_1_no_green.png" alt="clipasso"/>
-      </div>
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/mocha_teaser_1_no_green.png" alt="cars peace"/>
+        </div>
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/bs_1_bbox_no_green.png" alt="cars peace"/>
+        </div>
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/bs_2_bbox_no_green.png" alt="cars peace"/>
+        </div>
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/bs_3_bbox_no_green.png" alt="cars peace"/>
+        </div>
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/bs_4_bbox_no_green.png" alt="cars peace"/>
+        </div>
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/bs_5_bbox_no_green.png" alt="cars peace"/>
+        </div>
+    </div>
     </div>
   </div>
+  <p>Hallucinated details are shown as <mark style="background-color:#ffd2d1c7;">highlighted text</mark>.</p>
  <!--  </div> -->
   </div>
   </div>
@@ -165,12 +183,23 @@
       <!-- <div id="results-carousel" class="carousel results-carousel"> -->
       <div class="container">
       <h2 class="subtitle">
-        Additionally, we introduce OpenCHAIR, a benchmark for evaluating open-vocabulary hallucinations in image captioning models.
+        Additionally, existing hallucination metrics tend to measure only a fraction of all possible hallucinations due to their closed-vocabulary design.<br>
+        We introduce <b><u>OpenCHAIR</u></b>, a benchmark for evaluating open-vocabulary hallucinations in image captioning models:
       </h2>
-      <div class="item">
-      <div class="column is-centered has-text-centered">
-        <img src="static/figures/openchair_teaser.png" alt="clipasso"/>
-      </div>
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/och_3_bbox.png" alt="cars peace"/>
+        </div>
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/och_4_bbox.png" alt="cars peace"/>
+        </div>
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/och_2_bbox.png" alt="cars peace"/>
+        </div>
+        <div class="column is-centered has-text-centered">
+          <img src="static/figures/och_1_bbox.png" alt="cars peace"/>
+        </div>
     </div>
   </div>
  <!--  </div> -->
@@ -254,27 +283,30 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title has-text-centered">MOCHa Improves A Variety of Models In A Variety Of Scales</h2>
+      <h2 class="title has-text-centered">MOCHa Boosts Performance Across Various Metrics And Models</h2>
+      <!-- <h2 class="title has-text-centered">MOCHa Improves A Variety of Models In A Variety Of Scales</h2> -->
       <div class="column is-centered has-text-centered">
         <img src="static/figures/visualized_results_table.png" class="is-centered"/>
-        <p> NLI P(C), CH, and OCH denote the NLI contradiction probability, CHAIR (i for instance, s for sentence) and OpenCHAIR (b for beam search, s for sampling) metrics respectively.<br><br></p>
-        <h4 class="title has-text-centered">Full Table</h4>
-        <img src="static/figures/mocha_quantitative.png" width="770" height="770" class="is-centered"/>
+        <p>
+          <!-- We measure model performance across various metrics that measure both caption fidelity, evaluating the consistency of the generated caption to the provided ground truth one, along with caption quality. -->
+          NLI P(C), CH, and OCH denote the NLI contradiction probability, CHAIR (i for instance, s for sentence) and OpenCHAIR (b for beam search, s for sampling) metrics respectively. See our paper for additional metrics and more results.<br><br>
+        </p>
+        <!-- <h4 class="title has-text-centered">Full Table</h4>
+        <img src="static/figures/mocha_quantitative.png" width="770" height="770" class="is-centered"/> -->
       </div>
     </div>
   </div>  
 </section>
 
-<section class="section hero is-small">
+<section class="section hero is-small is-light">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Visual Results</h2>
+        <h2 class="title is-3">Additional Visual Results</h2>
         <div class="content has-text-justified">
           <p>
-            We provide a few visual examples for MOCHa's performance below (using beam search).<br>
-            For additional qualitative results, we refer to our <a href="https://assafbk.github.io/mocha_vis_tool" target="_blank">interactive visualization tool</a></span>.
+            For additional qualitative results, we refer to our <a href="https://assafbk.github.io/mocha_vis_tool" target="_blank" style="color:#008cff;"><u>interactive visualization tool</u></a></span>.
             The tool provides image captioning results using BLIP-Large with and without MOCHa for 500 randomly selected test images from MS-COCO and Flickr30K.
             For more information about the visualization tool, please see chapter A in the appendix.
           </p>
@@ -306,10 +338,9 @@
     </div>
 </section> -->
 
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <!-- <h3 class="title has-text-centered">BLIP+MOCHa with Beam-Search</h3> -->
       <div id="results-carousel" class="carousel results-carousel">
       <div class="column is-centered has-text-centered">
         <img src="static/figures/bs_1_bbox.png" alt="cars peace"/>
@@ -329,32 +360,8 @@
   </div>
 </div>
 </div>
-</section>
-
-<!-- <section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h3 class="title has-text-centered">BLIP+MOCHa with Sampling</h3>
-      <div id="results-carousel" class="carousel results-carousel">
-      <div class="column is-centered has-text-centered">
-        <img src="static/figures/sampling_2_bbox.png" alt="cars peace"/>
-      </div>
-      <div class="column is-centered has-text-centered">
-        <img src="static/figures/sampling_3_bbox.png" alt="cars peace"/>
-      </div>
-      <div class="column is-centered has-text-centered">
-        <img src="static/figures/sampling_1_bbox.png" alt="cars peace"/>
-      </div>
-      <div class="column is-centered has-text-centered">
-        <img src="static/figures/sampling_4_bbox.png" alt="cars peace"/>
-      </div>
-      <div class="column is-centered has-text-centered">
-        <img src="static/figures/sampling_5_bbox.png" alt="cars peace"/>
-      </div>    
-  </div>
-</div>
-</div>
 </section> -->
+
 
 
 <section class="section hero is-small">
@@ -388,7 +395,7 @@
   </div>
 </section> 
 
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h3 class="title has-text-centered">OpenCHAIR Visualization</h3>
@@ -408,7 +415,7 @@
   </div>
 </div>
 </div>
-</section>
+</section> -->
 
 <section class="section hero is-light">
   <div class="container is-max-desktop">
