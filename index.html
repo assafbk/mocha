@@ -186,7 +186,7 @@
       <div class="container">
         <h2 class="subtitle">
 <!--           Hallucinated details are prevalent in the outputs of modern image captioning models.<br> -->
-          Additionally, we introduce <b><u>MOCHa</u></b>, a reinforcement learning-based approach that adjusts captioning models to output detailed, valid captions while avoiding such hallucinations.
+          Additionally, we introduce <b><u>MOCHa</u></b>, a reinforcement learning-based approach that adjusts captioning models to output detailed, valid captions while avoiding such hallucinations:
         </h2>
       </div>
  <!--  </div> -->
@@ -277,22 +277,25 @@
         <h2 class="title is-3">OpenCHAIR</h2>
         <div class="content has-text-justified">
           <p>
-            Instead of relying on closed object lists, <b>OpenCHAIR</b> uses a knowledgable LLM to perform fine-grained hallucination detection over a signifacntly larger vocabulary.
-            To exploit the LLM's full potential we construct a new dataset by generating 2000 captions with highly diverse objects and let a powerful text-to-image model generate images for them. 
+            Instead of relying on closed object lists, <b>OpenCHAIR</b> uses a knowledgable LLM to perform fine-grained hallucination detection over a signifacntly larger vocabulary:
           </p>
         </div>
         <div class="column is-centered has-text-centered">
         <img src="static/figures/OCH_example.png" alt="cars peace"/>
-      </div>
+        </div>
         <div class="content has-text-justified">
           <p>
-            We show that by using an open-vocabulary architecture we are not just able to increase the benchmark's diversity, but also improve the evaluation accuracy with respect to a human evaluation.
+            To exploit the LLM's full potential we construct a new dataset by generating 2000 captions with highly diverse objects and let a powerful text-to-image model generate images for them.
+            We find that by using an open-vocabulary architecture we are not just able to significantly increase the benchmark's diversity, but also improve the evaluation accuracy with respect to a human evaluation:
             <!-- The above illustrates the fundamentally different nature of quantifying open-vocabulary hallucinations with OpenCHAIR, compared to the closed-vocabulary evaluation of CHAIR. -->
 <!--             Given the above image and groundtruth information, OpenCHAIR extracts concrete objects from a
             predicted caption and identifies hallucinated objects from this list by querying an LLM.
             In contrast, in the above case the predicted object guitar would not be counted by CHAIR since it is not in its
             fixed vocabulary, while man would not be counted as a hallucination since it is given as a synonym of child in CHAIR's vocabulary. -->
           </p>
+        <div class="column is-centered has-text-centered">
+        <img src="static/figures/OCH_eval_table.png" alt="cars peace"/>
+        </div>
         </div>
       </div>
     </div>
