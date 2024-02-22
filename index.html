@@ -250,14 +250,22 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            While recent years have seen rapid progress in image-conditioned text generation, image captioning still suffers from the fundamental issue of hallucinations, the generation of spurious details that cannot be inferred from the given image.
+            While recent years have seen rapid progress in image-conditioned text generation, image captioning still suffers from the fundamental issue of hallucinations, namely, the generation of spurious details that cannot be inferred from the given image.
+            Existing methods largely use closed-vocabulary object lists to mitigate or evaluate hallucinations in image captioning, ignoring most types of hallucinations that occur in practice.
+            To this end, we propose a framework for addressing hallucinations in image captioning in the open-vocabulary setting, including quantifying their presence and optimizing to mitigate such hallucinations.
+            Our OpenCHAIR benchmark leverages generative foundation models to evaluate open-vocabulary caption hallucinations, surpassing the popular CHAIR benchmark in both diversity and accuracy.
+            To mitigate open-vocabulary hallucinations on the sequence level, we propose MOCHa, an approach harnessing advancements in reinforcement learning.
+            Our multi-objective reward function explicitly targets the trade-off between fidelity and adequacy in generations without requiring any strong supervision.
+            MOCHa improves a large variety of image captioning models, as captured by our OpenCHAIR benchmark as well as other existing metrics. We will release our code, benchmark and models.
+           
+<!--             While recent years have seen rapid progress in image-conditioned text generation, image captioning still suffers from the fundamental issue of hallucinations, the generation of spurious details that cannot be inferred from the given image.
             Dedicated methods for reducing hallucinations in image captioning largely focus on closed-vocabulary object tokens, ignoring most types of hallucinations that occur in practice.<br>
             In this work, we propose MOCHa, an approach that harnesses advancements in reinforcement learning (RL) to address the sequence-level nature of hallucinations in an open-vocabulary setup.
             To optimize for caption fidelity to the input image, we leverage ground-truth reference captions as proxies to measure the logical consistency of generated captions.
             However, optimizing for caption fidelity alone fails to preserve the semantic adequacy of generations; therefore, we propose a multi-objective reward function that jointly targets these qualities, without requiring any strong supervision.
             We demonstrate that these goals can be simultaneously optimized with our framework, enhancing performance for various captioning models of different scales.
             Our qualitative and quantitative results demonstrate MOCHa's superior performance across various established metrics.<br>
-            We also demonstrate the benefit of our method in the open-vocabulary setting. To this end, we contribute OpenCHAIR, a new benchmark for quantifying open-vocabulary hallucinations in image captioning models, constructed using generative foundation models.
+            We also demonstrate the benefit of our method in the open-vocabulary setting. To this end, we contribute OpenCHAIR, a new benchmark for quantifying open-vocabulary hallucinations in image captioning models, constructed using generative foundation models. -->
           </p>
         </div>
       </div>
