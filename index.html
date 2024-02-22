@@ -139,11 +139,12 @@
       <!-- <div id="results-carousel" class="carousel results-carousel"> -->
       <div class="container">
       <h2 class="subtitle">
-        Hallucinated details are prevalent in the outputs of modern image captioning models and appear in a variety of forms, some highly non-trivial.
+         <!-- and appear in a variety of forms, some highly non-trivial. -->
+        Hallucinated details are prevalent in the outputs of modern image captioning models.
         Prior work has largely focused on detecting or mitigating hallucinations by using closed-vocabulary object lists, which simplify the problem but fail to capture most types of hallucinations that occur in practice.
         By leveraging recent progress in generative foundation models, we propose a unified framework for quantifying and mitigating open-vocabulary hallucinations.
         <br><br><br>
-        First, We introduce <b><u>OpenCHAIR</u></b>, a benchmark for evaluating open-vocabulary hallucinations which surpasses the existing benchmark CHAIR both in diversity and accuracy:
+        First, We introduce <b>OpenCHAIR</b>, a benchmark for evaluating open-vocabulary hallucinations which surpasses the existing benchmark <b>CHAIR</b> both in diversity and accuracy:
       </h2>
       </div>
   </div>
@@ -186,7 +187,7 @@
       <div class="container">
         <h2 class="subtitle">
 <!--           Hallucinated details are prevalent in the outputs of modern image captioning models.<br> -->
-          Additionally, we introduce <b><u>MOCHa</u></b>, a reinforcement learning-based approach that adjusts captioning models to output detailed, valid captions while avoiding such hallucinations:
+          Additionally, we introduce <b>MOCHa</b>, a reinforcement learning-based approach that adjusts captioning models to output detailed, valid captions while avoiding such hallucinations:
         </h2>
       </div>
  <!--  </div> -->
@@ -277,7 +278,7 @@
         <h2 class="title is-3">OpenCHAIR</h2>
         <div class="content has-text-justified">
           <p>
-            Instead of relying on closed object lists, <b>OpenCHAIR</b> uses a knowledgable LLM to perform fine-grained hallucination detection over a signifacntly larger vocabulary:
+            Instead of relying on closed object lists, <b>OpenCHAIR</b> uses a knowledgeable LLM to perform fine-grained hallucination detection over a significantly larger vocabulary:
           </p>
         </div>
         <div class="column is-centered has-text-centered">
@@ -286,7 +287,7 @@
         <div class="content has-text-justified">
           <p>
             To exploit the LLM's full potential we construct a new dataset by generating 2000 captions with highly diverse objects and let a powerful text-to-image model generate images for them.
-            We find that by using an open-vocabulary architecture we are not just able to significantly increase the benchmark's diversity, but also improve the evaluation accuracy with respect to a human evaluation:
+            We find that we are not just able to significantly increase the benchmark's diversity, but also improve the evaluation accuracy with respect to a human evaluator:
             <!-- The above illustrates the fundamentally different nature of quantifying open-vocabulary hallucinations with OpenCHAIR, compared to the closed-vocabulary evaluation of CHAIR. -->
 <!--             Given the above image and groundtruth information, OpenCHAIR extracts concrete objects from a
             predicted caption and identifies hallucinated objects from this list by querying an LLM.
@@ -296,11 +297,13 @@
         <div class="column is-centered has-text-centered">
         <img src="static/figures/OCH_eval_table.png" alt="cars peace"/>
         </div>
+        <p style="text-align:center;">*CHAIR also includes a coarse synonym list.</p>
         </div>
       </div>
     </div>
   </div>
-</section> 
+</section>
+
 
 <!-- <section class="hero is-small">
   <div class="hero-body">
@@ -358,18 +361,11 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">How does MOCHa work?</h2>
+        <h2 class="title is-3">MOCHa</h2>
         <div class="content has-text-justified">
           <p>
-           <!-- To jointly optimize for caption fidelity and semantic adequacy, we combine modern deep reinforcement learning methods along with a carefully designed reward model.
-           The algorithm iteratively collects a batch of data from a image captioning model M (left side) and then applies an optimization step to that model (right side).
-           To optimize for caption generations that satisfy the properties described above, we adopt the Proximal Policy Optimization (PPO) RL algorithm, which has been used by numerous recent works on text generation. PPO extends the REINFORCE algorithm (known as SCST in the context of image captioning) by using a clipped surrogate objective to avoid instabilities and increase sample efficiency. -->
-
-           To jointly optimize for caption fidelity and semantic adequacy, we apply the popular Proximal Policy Optimization (PPO) RL algorithm along with a carefully designed reward model.
-           The algorithm iteratively collects a batch of data from the image captioning model M (left side) and then applies an optimization step to it (right side):
-
-
-           <!-- The multi-objective reward reinforces M to produce captions closer to the high-scoring captions and further from the low-scoring captions. -->
+           To mitigate captioning hallucinations in the open-vocabulary setting, we propose an RL-based pipeline.
+           The algorithm iteratively collects a batch of data from the image captioning model M (left side), evaluates it, and applies an optimization step (right side):
           </p>
         </div>
         <div class="column is-centered has-text-centered">
@@ -377,10 +373,14 @@
       </div>
         <div class="content has-text-justified">
           <p>
-            We build the multi-objective reward model as follows. In order to measure fidelity to the input image, we feed a GT reference caption and a generated caption to a pre-trained Natural Language Inference (NLI) model, which predicts the probability of contradiction between the two texts.
+            We wish to optimize for the competing objectives of output fidelity (low hallucination rate) and adequacy (including sufficient details to describe the input image), as optimizing for one of these alone may cause the other to deteriorate. <br>
+            MOCHa's multi-objective reward model is able to handle this delicate trade-off by utilizing a SOTA Natural Language Inference (NLI) model to measure open-vocabulary hallucinations, and BERTScore, a pretrained model measuring the general quality of the generated text. Both models score the predicted captions w.r.t reference captions.
+
+
+            <!-- In order to measure fidelity to the input image, we feed a GT reference caption and a generated caption to a pre-trained Natural Language Inference (NLI) model, which predicts the probability of contradiction between the two texts.
             To measure adequacy we use BERTScore, a pretrained model measuring the general quality of the generated text relative to the GT reference.
             Following prior work, we add a Kullback–Leibler (KL) divergence penalty to the reward model which constrains the model to stay close to its initial state. This prevents the model from 'forgetting' valuable knowledge that it acquired during pre-training (like caption fluency and diversity) and restrains it from converging to adversarial solutions which 'reward-hack' the objective.
-            Our total reward function takes the form \(r = \alpha \cdot r_{f} + (1-\alpha) \cdot r_{a} + \beta \cdot r_{kl}\) , where \(\alpha\) and \(\beta\) are positive scalars controlling the tradeoff between our multiple objectives.
+            Our total reward function takes the form \(r = \alpha \cdot r_{f} + (1-\alpha) \cdot r_{a} + \beta \cdot r_{kl}\) , where \(\alpha\) and \(\beta\) are positive scalars controlling the tradeoff between our multiple objectives. -->
             <!-- PPO extends the REINFORCE algorithm (known as SCST in the context of image captioning) by using a clipped surrogate objective to avoid instabilities and increase sample efficiency.  -->
           </p>
         </div>
@@ -393,7 +393,7 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title has-text-centered">MOCHa Is Able To Reduce Hallucinations While Maintaining Caption Quality:</h2>
+      <h2 class="title has-text-centered">MOCHa Is Able To Reduce Hallucinations While Maintaining Caption Quality</h2>
       <!-- <h2 class="title has-text-centered">MOCHa Improves A Variety of Models In A Variety Of Scales</h2> -->
       <div class="column is-centered has-text-centered">
         <img src="static/figures/visualized_results_table.png" class="is-centered"/>
