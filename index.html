@@ -119,6 +119,14 @@
                 <span>Code</span>
               </a>
               </span>
+
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/moranyanuka/OpenCHAIR" target="_blank"
+                class="external-link button is-normal is-rounded">
+                <p style="font-size:14px">🤗</p>
+                <span>&nbsp;Dataset</span>
+              </a>
+              </span>
               <!-- <span class="link-block">
                 <a href="https://colab.research.google.com/github/yael-vinker/CLIPasso/blob/main/CLIPasso.ipynb"  target="_blank"
                   class="external-link button is-normal is-rounded">
@@ -149,7 +157,7 @@
         Prior work has largely focused on detecting or mitigating hallucinations by using closed-vocabulary object lists, which simplify the problem but fail to capture most types of hallucinations that occur in practice.
         By leveraging recent progress in generative foundation models, we propose a unified framework for quantifying and mitigating open-vocabulary hallucinations.
         <br><br><br>
-        First, We introduce <b>OpenCHAIR</b>, a benchmark for evaluating open-vocabulary hallucinations which surpasses the existing benchmark <b>CHAIR</b> both in diversity and accuracy:
+        First, we introduce <b>OpenCHAIR</b>, a benchmark for evaluating open-vocabulary hallucinations which surpasses the existing benchmark <b>CHAIR</b> both in diversity and accuracy:
       </h2>
       </div>
   </div>
@@ -190,9 +198,19 @@
     <div class="hero-body">
       <!-- <div id="results-carousel" class="carousel results-carousel"> -->
       <div class="container">
+        <!-- <h2 class="subtitle">
+          Full Dataset:
+        </h2> -->
+        <iframe
+          src="https://huggingface.co/datasets/moranyanuka/OpenCHAIR/embed/viewer/default/test"
+          frameborder="0"
+          width="100%"
+          height="560px"
+        ></iframe>
+
         <h2 class="subtitle">
 <!--           Hallucinated details are prevalent in the outputs of modern image captioning models.<br> -->
-          Additionally, we introduce <b>MOCHa</b>, a reinforcement learning-based approach that adjusts captioning models to output detailed, valid captions while avoiding such hallucinations:
+          <br><br><br>Additionally, we introduce <b>MOCHa</b>, a reinforcement learning-based approach that adjusts captioning models to output detailed, valid captions while avoiding such hallucinations:
         </h2>
       </div>
  <!--  </div> -->
